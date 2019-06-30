@@ -11,7 +11,7 @@ DEFINES += QMAPCONTROL_LIBRARY
 
 MOC_DIR = tmp
 OBJECTS_DIR = obj
-DESTDIR = ../App/bin
+DESTDIR = ../bin
 
 HEADERS += curve.h \
            geometry.h \

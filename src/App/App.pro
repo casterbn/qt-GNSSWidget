@@ -1,4 +1,4 @@
-include(../QMapControl/QMapControl.pri)
+#include(../QMapControl/QMapControl.pri)
 
 QT += \
     gui \
@@ -14,14 +14,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
-#INCLUDEPATH += \
+LIBS += -L../bin -lqmapcontrol
+
+INCLUDEPATH += ../QMapControl
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
