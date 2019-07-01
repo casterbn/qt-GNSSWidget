@@ -13,6 +13,10 @@ MOC_DIR = tmp
 OBJECTS_DIR = obj
 DESTDIR = ../bin
 
+# Default rules for deployment.
+target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
 HEADERS += curve.h \
            geometry.h \
            imagemanager.h \
