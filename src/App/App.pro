@@ -19,11 +19,13 @@ LIBS += -L../bin -lqmapcontrol
 INCLUDEPATH += ../QMapControl
 
 HEADERS += \
-    mainwindow.h \
+#    mainwindow.h \
+    mapwidget.h \
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp \
+#    mainwindow.cpp \
+    mapwidget.cpp \
 
 # Default rules for deployment.
 target.path = /opt/$${TARGET}/bin
