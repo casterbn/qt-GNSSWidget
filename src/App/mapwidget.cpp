@@ -2,6 +2,8 @@
 
 MapWidget::MapWidget(QWidget *parent) : QWidget(parent)
 {
+    if (parent == nullptr)
+        setWindowFlags(Qt::Widget | Qt::FramelessWindowHint);
 
     mc = new MapControl(QSize(380, 540));
     mapadapter = new OSMMapAdapter();
@@ -15,24 +17,32 @@ MapWidget::MapWidget(QWidget *parent) : QWidget(parent)
     mc->setZoom(17);
 
     QHBoxLayout* layout = new QHBoxLayout;
+    layout->setSpacing(0);
+    layout->setMargin(0);
     layout->addWidget(mc);
     setLayout(layout);
 }
 
 MapWidget::~MapWidget()
 {
-
+    delete mc;
+    delete mapadapter;
+    delete mainlayer;
 }
 
 void MapWidget::resizeEvent ( QResizeEvent * event )
 {
     mc->resize(event->size());
-//    mc->resize(size());
 }
 
 void MapWidget::updatePosition(QPointF coordinate)
 {
     mc->setView(coordinate);
+}
+
+void MapWidget::setZoom(int zoom)
+{
+    mc->setZoom(zoom);
 }
 
 void MapWidget::zoomIn()

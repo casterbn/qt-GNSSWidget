@@ -27,6 +27,7 @@ signals:
 public slots:
 
     void updatePosition(QPointF coordinate);
+    void setZoom(int zoom);
     void zoomIn();
     void zoomOut();
 
