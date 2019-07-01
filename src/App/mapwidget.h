@@ -2,10 +2,14 @@
 #define MAPWIDGET_H
 
 #include <QWidget>
-#include <QHBoxLayout>
+#include <QStackedLayout>
+
 #include <mapcontrol.h>
 #include <osmmapadapter.h>
 #include <maplayer.h>
+#include <imagepoint.h>
+#include <circlepoint.h>
+#include <linestring.h>
 
 using namespace qmapcontrol;
 
@@ -13,9 +17,11 @@ class MapWidget : public QWidget
 {
     Q_OBJECT
 
-    MapControl* mc;
-    MapAdapter* mapadapter;
-    Layer* mainlayer;
+    MapControl* mMc;
+    MapAdapter* mMapadapter;
+    Layer* mMainlayer;
+
+    QList<Point*> points;
 
 public:
 
@@ -30,6 +36,9 @@ public slots:
     void setZoom(int zoom);
     void zoomIn();
     void zoomOut();
+//    void keyPressEvent(QKeyEvent* evnt);
+
+    void testSlot();
 
 protected:
 
